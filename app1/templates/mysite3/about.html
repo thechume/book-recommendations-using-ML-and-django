@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css'%}">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="{% static 'js/bootstrap.min.js'%}" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<title>Chume's bookstore</title>
+</head>
+
+<body>
+	{% block content %}
+	{% endblock %}
+	<div class="sidenav">
+	  <a href="{% url 'recs' %}">Home</a>
+	  <a href="{% url 'discover' %}">Discover</a>
+	  <a href="#">About</a>
+	  <a href="{% url 'contact' %}">Contact</a>
+	</div>
+
+	<div class="main">
+
+		<div class="header">
+		  <img src="{% static 'img/logo.png'%}">
+		</div>
+		
+		<div id="tfheader">
+			<form id="tfnewsearch" method="POST" action="{% url 'search'%}">
+				{% csrf_token %}
+				<input type="text" name="search" class="tftextinput" size="21" maxlength="120"><input type="submit" class="tfbutton">
+			</form>
+			<div class="tfclear"></div>
+		</div>
+		
+		<div class="topnav">
+		  <a href="{% url 'genres' %}">Browse By Genre</a>
+		  <a href="{% url 'categories' %}">Browse By Category</a>
+		</div>
+
+		<div class="smolheading">
+			<h3>ABOUT US</h3>
+			</div>
+		<div class="row">
+			<div class="complete_column">
+				<p>We recommend books that you will love based on your prior reads and ratings.</p>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

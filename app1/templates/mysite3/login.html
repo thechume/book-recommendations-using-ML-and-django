@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% load staticfiles %}
+	<title>If You Liked That</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="{% static 'style.css'%}">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="{% static 'js/bootstrap.min.js'%}" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</head>
+<body>
+	
+	{% block content %}
+	{% endblock %}
+	<div class="sidenav">
+	  <a href="#">Home</a>
+	  <a href="{% url 'about' %}">About</a>
+	  <a href="{% url 'contact' %}">Contact</a>
+	</div>
+
+	<div class="main">
+
+		<div class="header">
+		  <img src="{% static 'img/logo2.png'%}">
+		</div>
+		
+		<div class="smolheading">
+			<h2>LOGIN</h2>
+		</div>
+		
+		
+		<div class="smol_heading">
+			<form id="login" method="POST" action="{% url 'l_recs' %}" align="middle">
+				{% csrf_token %}
+				<br />
+				<input type="text" name="username" placeholder="Username" method="POST" size="21" maxlength="120">
+				<br />
+				<input type="text" name="password" placeholder="Password" method="POST" size="21" maxlength="120">
+				<br />
+				<input type="submit">
+				<br />
+			</form>
+		</div>
+		<br />
+		<div class="centering" align="middle">
+			<a href="{% url 'sign_up' %}" >Sign up</a>
+		</div>
+	</div>
+
+</body>
+</html>

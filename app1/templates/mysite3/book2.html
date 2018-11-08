@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css'%}">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="{% static 'js/bootstrap.min.js'%}" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<title>If You Liked That - Warcross</title>
+</head>
+
+<body>
+	{% block content %}
+	{% endblock %}
+	<div class="sidenav">
+	  <a href="{% url 'recs' %}">Home</a>
+	  <a href="{% url 'discover' %}">Discover</a>
+	  <a href="{% url 'about' %}">About</a>
+	  <a href="{% url 'contact' %}">Contact</a>
+	</div>
+
+	<div class="main">
+
+		<div class="header">
+		  <img src="{% static 'img/logo.png'%}"/>
+		</div>
+		
+		<div id="tfheader">
+			<form id="tfnewsearch" method="get" action="http://www.google.com">
+					<input type="text" class="tftextinput" name="q" size="21" maxlength="120"><input type="submit" value="search" class="tfbutton">
+			</form>
+		<div class="tfclear"></div>
+		</div>
+		
+		<div class="topnav">
+		 <a href="{% url 'genres' %}">Browse By Genre</a>
+		  <a href="{% url 'categories' %}">Browse By Category</a>
+		</div>
+		{% for i in data %}
+			<div class="row">
+				<div class="complete_column">
+					<center><img src="{{ i.cover }}" class="image" width="200" height="330" align="middle" alt="{{ i.title }}"/><center>
+				</div>
+				
+				<div class="complete_column">
+					<p>Title: <strong>{{ i.title }}</strong><p>
+				
+					<p>Author: <strong>{{ i.a_name }}</strong><p>
+
+					<p>Genre: <strong>{{ i.genre }}</strong><p>
+
+					<p>Category: <strong>{{ i.cat }}</strong><p>
+
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="complete_column">
+					<h3>Synopsis:</h3>
+					<p>{{ i.synopsis }}</p>
+					<br />
+				</div>
+			</div>
+			<div class="row">
+				<div class="complete_column">
+					<h3>Your rating: {{ i.rating }}</h3>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</body>
+
+</html>

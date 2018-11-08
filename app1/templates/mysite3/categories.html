@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css'%}">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="{% static 'js/bootstrap.min.js'%}" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<title>If You Liked That</title>
+</head>
+
+<body>
+	{% block content %}
+	{% endblock %}
+	<div class="sidenav">
+	  <a href="{% url 'recs' %}">Home</a>
+	  <a href="{% url 'discover' %}">Discover</a>
+	  <a href="{% url 'about' %}">About</a>
+	  <a href="{% url 'contact' %}">Contact</a>
+	</div>
+
+	<div class="main">
+
+		<div class="header">
+		  <img src="{% static 'img/logo2.png'%}"/>
+		</div>
+		
+		<div id="tfheader">
+			<form id="tfnewsearch" method="POST" action="{% url 'search'%}">
+				{% csrf_token %}
+				<input type="text" name="search" class="tftextinput" size="21" maxlength="120"><input type="submit" class="tfbutton">
+			</form>
+			<div class="tfclear"></div>
+		</div>
+		
+		<div class="topnav">
+		  <a href="{% url 'genres' %}">Browse By Genre</a>
+		  <a href="#">Browse By Category</a>
+		</div>
+
+		<div class="smolheading">
+			<h3>ALL CATEGORIES</h3>
+		</div>
+		
+		<!-- row 1 -->
+		<div class="row">
+			<div class="column">
+				<img src="{% static 'img/furthermore.jpg'%}" class="image" width="200" height="330" align="middle" alt="Warcross"/>
+					<div class="overlay">
+						<div class="text"><a href="{% url 'kids' %}"><strong>Children's (or all ages)</strong></a></div>
+					</div>
+			</div>
+			<div class="column">
+				<img src="{% static 'img/I was born for this.jpg'%}" class="image" width="200" height="330" align="middle" alt="I Was Born For This"/></a>
+					<div class="overlay">
+						<div class="text"><a href="{% url 'youngadult' %}"><strong>Young Adult (15+)</strong></a></div>
+					</div>
+			</div>
+			<div class="column">
+				<img src="{% static 'img/ACOMAF.jpg'%}" class="image" width="200" height="330" align="middle" alt="Crazy Rich Asians"/></a>
+					<div class="overlay">
+						<div class="text"><a href="{% url 'newadult' %}"><strong>New Adult (18+)</strong></a></div>
+					</div>
+			</div>
+			<div class="column">
+				<img src="{% static 'img/Ive got your number.jpg'%}" class="image" width="200" height="330" align="middle" alt="Koi Good News?"/></a>
+					<div class="overlay">
+						<div class="text"><a href="{% url 'adult' %}"><strong>Adult(19+)</strong></a></div>
+					</div>
+			</div>
+		</div>
+		
+	</div>
+</body>
+
+</html>

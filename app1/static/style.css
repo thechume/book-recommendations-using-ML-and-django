@@ -1,0 +1,241 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+    background-color: #ededed;
+}
+
+.sidenav {
+    height: 100%;
+    width: 12.5%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #A1A0AF;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #000000;
+    display: block;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.main {
+    margin-left: 160px; /* Same as the width of the sidenav */
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+/* Style the header */
+.header {
+    background-color: #f1f1f1;
+    padding: 20px;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+/* Style the top navigation bar */
+.topnav {
+    overflow: hidden;
+    background-color: #A1A0AF;
+}
+
+/* Style the topnav links */
+.topnav a {
+    float: left;
+    display: block;
+    color: #000000;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/*for "New Releases" heading etc*/
+.smolheading {
+	text-align: center;
+	color: 6B3F7B;
+	margin-top: 25px;
+	margin-bottom: 15px;
+}
+
+/*only one column in main body*/
+.complete_column {
+	width: 87.5%;
+	background-color: #ffffff;
+	padding: 15px;
+    margin-left: 15px;
+	margin-right: 15px;
+	margin-top:25px;
+	font-size: 20px;
+}
+/* Create four equal columns that floats next to each other */
+/* for new_releases, genres and categories*/
+.column {
+	position: relative;
+	float: center;
+    width: 22%;
+    padding: 15px;
+    margin-left: 15px;
+	margin-right: 15px;
+    background-color: #ffffff;
+}
+
+.image {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.column_text p {
+	text-align: center;
+	float: center;
+    width: 22%;
+    padding: 15px;
+    margin-left: 18px;
+	margin-right: 18px;
+    background-color: #fff;
+	color: #000000;
+	font-size: 25px;
+}
+
+/*two unequally sized columns that float next to each other*/
+/*for today's deals and product page*/
+.column_img1 {
+	float: center;
+    width: 20%;
+    padding: 15px;
+    margin-left: 15px;
+	margin-right: 5px;
+    background-color: #ffffff;
+}
+
+.column_text1 {
+	float: left;
+	text-align: left;
+	width: 65%;
+    padding: 15px;
+	margin-right: 15px;
+    background-color: #ffffff;
+	color: #000000;
+	font-size:15px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width:600px) {
+    .column {
+        width: 100%;
+    }
+	.column_img1 {
+        width: 100%;
+    }
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #B5A6DA;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #000
+}
+
+.column:hover .overlay {
+  opacity: 1;
+}
+
+.product_heading h2{
+	margin-top: 25px;
+	margin-bottom:25px;
+}
+
+/* search bar */
+#tfheader{
+		background-color:#c3dfef;
+	}
+	#tfnewsearch{
+		float:right;
+		padding:10px;
+		margin-bottom: 5px;
+	}
+	.tftextinput{
+		margin: 0;
+		padding: 5px 15px;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size:14px;
+		border:1px solid #0076a3; border-right:0px;
+		border-top-left-radius: 5px 5px;
+		border-bottom-left-radius: 5px 5px;
+	}
+	.tfbutton {
+		margin: 0;
+		padding: 5px 15px;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size:14px;
+		outline: none;
+		cursor: pointer;
+		text-align: center;
+		text-decoration: none;
+		color: #ffffff;
+		border: solid 1px #0076a3; border-right:0px;
+		background: #0095cd;
+		background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+		background: -moz-linear-gradient(top,  #00adee,  #0078a5);
+		border-top-right-radius: 5px 5px;
+		border-bottom-right-radius: 5px 5px;
+	}
+	.tfbutton:hover {
+		text-decoration: none;
+		background: #007ead;
+		background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
+		background: -moz-linear-gradient(top,  #0095cc,  #00678e);
+	}
+	/* Fixes submit button height problem in Firefox */
+	.tfbutton::-moz-focus-inner {
+	  border: 0;
+	}
+	.tfclear{
+		clear:both;
+	}

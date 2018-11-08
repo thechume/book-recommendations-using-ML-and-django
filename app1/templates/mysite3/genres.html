@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css'%}">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="{% static 'js/bootstrap.min.js'%}" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<title>If You Liked That</title>
+</head>
+
+<body>
+	{% block content %}
+	{% endblock %}
+	<div class="sidenav">
+	  <a href="{% url 'recs' %}">Home</a>
+	  <a href="{% url 'discover' %}">Discover</a>
+	  <a href="{% url 'about' %}">About</a>
+	  <a href="{% url 'contact' %}">Contact</a>
+	</div>
+
+	<div class="main">
+
+		<div class="header">
+		  <img src="{% static 'img/logo2.png'%}">
+		</div>
+		
+		<div id="tfheader">
+			<form id="tfnewsearch" method="POST" action="{% url 'search'%}">
+				{% csrf_token %}
+				<input type="text" name="search" class="tftextinput" size="21" maxlength="120"><input type="submit" class="tfbutton">
+			</form>
+			<div class="tfclear"></div>
+		</div>
+		
+		<div class="topnav">
+		  <a href="#">Browse By Genre</a>
+		  <a href="{% url 'categories' %}">Browse By Category</a>
+		</div>
+
+		<div class="smolheading">
+			<h3>ALL GENRES</h3>
+		</div>
+		
+		<!-- row 1 -->
+		<div class="row">
+			<div class="column">
+				<img src="{% static 'img/my not so perfect life.jpg'%}" class="image" width="200" height="330" align="middle" alt="my not so perfect life"/>
+					<div class="overlay">
+						<div class="text"><a href="{% url 'chicklit' %}"><strong>Chick Lit</strong></a></div>
+					</div>
+			</div>
+			<div class="column">
+				<img src="{% static 'img/calvinandhobbes.jpg'%}" class="image" width="200" height="330" align="middle" alt="calvinandhobbes"/></a>
+					<div class="overlay">
+						<div class="text"><a href="{% url 'comics' %}"><strong>Comics</strong></a></div>
+					</div>
+			</div>
+			<div class="column">
+				<img src="{% static 'img/I was born for this.jpg'%}" class="image" width="200" height="330" align="middle" alt="I Was Born For This"/></a>
+					<div class="overlay">
+						<div class="text"><a href="{% url 'contemporary' %}"><strong>Contemporary</strong></a></div>
+					</div>
+			</div>
+			<div class="column">
+				<img src="{% static 'img/the hunger games.jpg'%}" class="image" width="200" height="330" align="middle" alt="the hunger games"/></a>
+					<div class="overlay">
+						<div class="text"><a href="{% url 'dystopia' %}"><strong>Dystopia</strong></a></div>
+					</div>
+			</div>
+		</div>
+		
+		<!-- row 2 -->
+		<div class="row">
+			<div class="column">
+				<img src="{% static 'img/ACOMAF.jpg'%}" class="image" width="200" height="330" align="middle" alt="ACOMAF"/>
+					<div class="overlay">
+						<div class="text"><a href="{% url 'fantasy' %}"><strong>Fantasy</strong></a></div>
+					</div>
+			</div>
+			<div class="column">
+				<img src="{% static 'img/it.jpg'%}" class="image" width="200" height="330" align="middle" alt="it"/></a>
+					<div class="overlay">
+						<div class="text"><a href="{% url 'horror' %}"><strong>Horror</strong></a></div>
+					</div>
+			</div>
+			<div class="column">
+				<img src="{% static 'img/yes please.jpg'%}" class="image" width="200" height="330" align="middle" alt="yes please"/></a>
+					<div class="overlay">
+						<div class="text"><a href="{% url 'humour' %}"><strong>Humour</strong></a></div>
+					</div>
+			</div>
+			<div class="column">
+				<img src="{% static 'img/a room away from the wolves.jpg'%}" class="image" width="200" height="330" align="middle" alt="a room away from the wolves"/></a>
+					<div class="overlay">
+						<div class="text"><a href="{% url 'mysteryandcrime' %}"><strong>Mystery & Crime</strong></a></div>
+					</div>
+			</div>
+		</div>
+		
+		<!-- row 3 -->
+		<div class="row">
+			<div class="column">
+				<img src="{% static 'img/unfiltered.jpg'%}" class="image" width="200" height="330" align="middle" alt="unfiltered"/></a>
+					<div class="overlay">
+						<div class="text"><a href="{% url 'nonfiction' %}"><strong>Non-Fiction</strong></a></div>
+					</div>
+			</div>
+			<div class="column">
+				<img src="{% static 'img/milk and honey.jpg'%}" class="image" width="200" height="330" align="middle" alt="milk and honey"/>
+					<div class="overlay">
+						<div class="text"><a href="{% url 'poetry' %}"><strong>Poetry</strong></a></div>
+					</div>
+			</div>
+			<div class="column">
+				<img src="{% static 'img/Ive got your number.jpg'%}" class="image" width="200" height="330" align="middle" alt="I've got your number"/></a>
+					<div class="overlay">
+						<div class="text"><a href="{% url 'romance' %}"><strong>Romance</strong></a></div>
+					</div>
+			</div>
+			<div class="column">
+				<img src="{% static 'img/warcross.jpg'%}" class="image" width="200" height="330" align="middle" alt="warcross"/></a>
+					<div class="overlay">
+						<div class="text"><a href="{% url 'sciencefiction' %}"><strong>Science Fiction</strong></a></div>
+					</div>
+			</div>
+		</div>
+		
+		<!-- row 4 -->
+		<div class="row">
+			<div class="column">
+				<img src="{% static 'img/javatb.jpg'%}" class="image" width="200" height="330" align="middle" alt="java"/>
+					<div class="overlay">
+						<div class="text"><a href="{% url 'textbooks' %}"><strong>Textbooks<strong></a></div>
+					</div>
+			</div>
+			<div class="column">
+				<img src="{% static 'img/gone girl.jpg'%}" class="image" width="200" height="330" align="middle" alt="gone girl"/></a>
+					<div class="overlay">
+						<div class="text"><a href="{% url 'thriller' %}"><strong>Thriller</strong></a></div>
+					</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
